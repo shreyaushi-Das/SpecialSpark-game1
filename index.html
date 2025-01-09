@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Scramble Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            margin: 50px auto;
+            max-width: 600px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .scrambled {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .hint {
+            font-size: 18px;
+            color: #555;
+        }
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: calc(100% - 20px);
+            max-width: 400px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Word Scramble Game</h1>
+        <p class="hint">Hint: <span id="hint"></span></p>
+        <div class="scrambled" id="scrambled"></div>
+        <input type="text" id="guess" placeholder="Enter your guess here">
+        <br>
+        <button onclick="checkAnswer()">Submit</button>
+        <p class="message" id="message"></p>
+    </div>
+
+    <script>
+        const words = [
+            { word: "addition", hint: "The process of adding numbers" },
+            { word: "meeting", hint: "Event in which people come together" },
+            { word: "number", hint: "Math symbol used for counting" },
+            { word: "exchange", hint: "The act of trading" },
+            { word: "canvas", hint: "Piece of fabric for oil painting" }
+        ];
+
+        let currentWord = "";
+        let scrambledWord = "";
+        let currentHint = "";
+
+        function scrambleWord(word) {
+            return word.split('').sort(() => Math.random() - 0.5).join('');
+        }
+
+        function loadGame() {
+            const randomIndex = Math.floor(Math.random() * words.length);
+            currentWord = words[randomIndex].word;
+            currentHint = words[randomIndex].hint;
+            scrambledWord = scrambleWord(currentWord);
+
+            document.getElementById("hint").innerText = currentHint;
+            document.getElementById("scrambled").innerText = scrambledWord;
+            document.getElementById("message").innerText = "";
+            document.getElementById("guess").value = "";
+        }
+
+        function checkAnswer() {
+            const userGuess = document.getElementById("guess").value.trim().toLowerCase();
+            if (userGuess === currentWord) {
+                document.getElementById("message").innerText = "Correct! Well done!";
+                document.getElementById("message").style.color = "green";
+            } else {
+                document.getElementById("message").innerText = "Incorrect! Try again.";
+                document.getElementById("message").style.color = "red";
+            }
+        }
+
+        window.onload = loadGame;
+    </script>
+</body>
+</html>
