@@ -3,68 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Word Scramble Game</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-        }
-        .container {
-            margin: 50px auto;
-            max-width: 600px;
-            padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-        }
-        .scrambled {
-            font-size: 24px;
-            font-weight: bold;
-            margin: 20px 0;
-        }
-        .hint {
-            font-size: 18px;
-            color: #555;
-        }
-        input[type="text"] {
-            padding: 10px;
-            font-size: 16px;
-            margin: 10px 0;
-            width: calc(100% - 20px);
-            max-width: 400px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            color: #fff;
-            background: #007BFF;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-        .message {
-            margin-top: 20px;
-            font-size: 18px;
-        }
-    </style>
+    <title>Word Scrabble Game</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="red-apple-isolated-clipping-path-19130134.webp" type="image/x-icon">
+    <link rel="icon" href="red-apple-isolated-clipping-path-19130134.webp" type="image/png">
 </head>
 <body>
     <div class="container">
-        <h1>Word Scramble Game</h1>
-        <p class="hint">Hint: <span id="hint"></span></p>
-        <div class="scrambled" id="scrambled"></div>
-        <input type="text" id="guess" placeholder="Enter your guess here">
-        <br>
-        <button onclick="checkAnswer()">Submit</button>
-        <p class="message" id="message"></p>
+        <h1>Word Scrabble Game</h1>
+        <p>Unscramble the words based on the description!</p>
+        <div class="description" id="description"></div>
+        <div class="word-container" id="word-container"></div>
+        <div class="answer-section">
+            <input type="text" id="answer" placeholder="Enter your answer">
+            <button onclick="checkAnswer()">Submit</button>
+        </div>
+        <div class="message" id="message"></div>
+        <div class="images-container" id="images-container"></div>
     </div>
 
+<<<<<<< HEAD
     <script>
         const words = [
             { word: "addition", hint: "The process of adding numbers" },
@@ -107,5 +65,8 @@
 
         window.onload = loadGame;
     </script>
+=======
+    <script src="script.js"></script>
+>>>>>>> aa9108e1ea3e68ee7a39499db99aa76f07cf6c2a
 </body>
 </html>

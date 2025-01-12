@@ -1,220 +1,256 @@
-/* Import Google font - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-*{
+/* style.css */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
 }
-body{
+
+body {
+  font-family: 'Poppins', sans-serif; /* Clean, easy-to-read font */
+  background: rgb(226, 228, 112);
+  background: linear-gradient(
+    90deg,
+    rgba(226, 228, 112, 1) 0%,
+    rgba(152, 223, 45, 1) 50%,
+    rgba(116, 210, 15, 1) 100%
+  );
   display: flex;
-  padding: 0 10px;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   min-height: 100vh;
-  background: #3571AE;
+  padding: 20px;
+  overflow: auto;
+  flex-direction: column; /* Allows scroll when the content is larger */
 }
-.container{
 
-  width: 440px;
-  border-radius: 7px;
-  background: #fff;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
-}
-.container h2{
-  font-size: 25px;
-  font-weight: 500;
-  padding: 16px 25px;
-  border-bottom: 1px solid #ccc;
+.container {
   text-align: center;
-}
-
-.startArea {
- display: flex;
- justify-content: center;
- align-items: center;
-}
-
-.startBtn {
-  border: none;
-  outline: none;
-  color: #fff;
-  cursor: pointer;
-  margin: 15px;
-  padding: 10px 0;
-  font-size: 17px;
-  border-radius: 5px;
-  width: calc(100% / 2 - 8px);
-  transition: all 0.5s ease;
-  background: #3571AE;
-
-}
-
-.startBtn:hover{
-  background: #707d8b;
-}
-
-
-.container .content{
-  display: none; 
-  margin: 25px 20px 35px;
-}
-.content .word{
-  user-select: none;
-  font-size: 33px;
-  font-weight: 500;
-  text-align: center;
-  letter-spacing: 24px;
-  margin-right: -24px;
-  word-break: break-all;
-  text-transform: uppercase;
-}
-.content .details{
-  margin: 25px 0 20px;
-}
-.details p{
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-.details p b{
-  font-weight: 500;
-}
-.content input{
+  background: rgb(112, 228, 216);
+  background: linear-gradient(
+    90deg,
+    rgb(164, 255, 240) 0%,
+    rgb(93, 255, 212) 50%,
+    rgb(15, 210, 155) 100%
+  );
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
   width: 100%;
-  height: 60px;
-  outline: none;
-  padding: 0 16px;
-  font-size: 18px;
-  border-radius: 5px;
-  border: 1px solid #bfbfbf;
+  transform: scale(1);
+  animation: scaleUp 1s ease-out;
+  max-height: 80vh; /* Limit container height */
+  overflow-y: auto; /* Scrollable container when content exceeds the height */
 }
-.content input:focus{
-  box-shadow: 0px 2px 4px rgba(0,0,0,0.08);
+
+h1 {
+  color: #2e3b4e; /* Dark color for the title */
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
-.content input::placeholder{
-  color: #aaa;
+
+p {
+  margin: 20px 0;
+  font-size: 1.3em;
+  color: #f9c74f; /* Bright yellow for better visibility */
 }
-.content input:focus::placeholder{
-  color: #bfbfbf;
+
+.description {
+  font-size: 1.5em;
+  color: #ff61a6; /* Soft pink for descriptions */
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
-.content .buttons{
-  display: flex;
-  margin-top: 20px;
-  justify-content: space-between;
-}
-.buttons button{
-  border: none;
-  outline: none;
+
+.word-container {
+  font-size: 2em;
+  font-weight: bold;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  background: linear-gradient(to right, #4facfe, #00f2fe); /* Bright blue gradient */
   color: #fff;
-  cursor: pointer;
-  padding: 15px 0;
-  font-size: 17px;
-  border-radius: 5px;
-  width: calc(100% / 2 - 8px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.answer-section {
+  margin-bottom: 30px;
+}
+
+#answer {
+  padding: 15px;
+  font-size: 1.5em;
+  border: 2px solid #4facfe;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 300px;
+  outline: none;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 }
-.buttons button:active{
-  transform: scale(0.97);
-}
-.buttons .refresh-word{
-  background: #6C757D;
-}
-.buttons .refresh-word:hover{
-  background: #5f666d;
-}
-.buttons .check-word{
-  background: #3571AE;
-}
-.buttons .check-word:hover{
-  background: #3A7CBF;
+
+#answer:focus {
+  border-color: #ff61a6; /* Focus effect with pink */
+  box-shadow: 0 5px 15px rgba(255, 97, 166, 0.5);
 }
 
-
-
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  padding-top: 300px;
-
-}
-
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-
-.modal-wrong {
-border: 2px solid red;
-}
-
-.modal-correct {
-  border: 2px solid green;
-  }
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
+button {
+  padding: 12px 20px;
+  font-size: 1.5em;
+  background-color: #28a745;
+  border: none;
+  border-radius: 10px;
+  color: white;
   cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.score-area {
-  padding-top: 15px;
-  font-size: 18px;
-  color: black;
+button:hover {
+  background-color: #075117;
+  transform: scale(1.05); /* Hover effect with scale */
 }
 
-.score {
- color: #3571AE;
+.message {
+  margin-top: 30px;
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #28a745;
+  transition: all 0.3s ease;
 }
 
-@media screen and (max-width: 470px) {
-  .container h2{
-    font-size: 22px;
-    padding: 13px 20px;
+.message.error {
+  color: #e74c3c; /* Red color for errors */
+}
+
+.images-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.images-container img {
+  width: 150px;
+  height: 150px;
+  margin: 10px;
+  display: none;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.5s ease;
+}
+
+.images-container img.show {
+  display: block;
+  transform: scale(1.1); /* Slight zoom-in effect */
+}
+
+/* Animation for container */
+@keyframes scaleUp {
+  from {
+      transform: scale(0.5);
+      opacity: 0;
   }
-  .content .word{
-    font-size: 30px;
-    letter-spacing: 20px;
-    margin-right: -20px;
+  to {
+      transform: scale(1);
+      opacity: 1;
   }
-  .container .content{
-    margin: 20px 20px 30px;
+}
+
+/* Responsive Styles */
+
+/* Mobile (portrait) */
+@media (max-width: 767px) {
+  .container {
+      padding: 20px;
+      margin: 10px;
+      width: 100%;
   }
-  .details p{
-    font-size: 16px;
-    margin-bottom: 8px;
+
+  h1 {
+      font-size: 2em;
   }
-  .content input{
-    height: 55px;
-    font-size: 17px;
+
+  .description, .word-container, #answer {
+      font-size: 1.2em;
   }
-  .buttons button{
-    padding: 14px 0;
-    font-size: 16px;
-    width: calc(100% / 2 - 7px);
+
+  button {
+      padding: 10px 15px;
+      font-size: 1.2em;
+  }
+
+  .images-container img {
+      width: 120px;
+      height: 120px;
+  }
+
+  .message {
+      font-size: 1.5em;
+  }
+}
+
+/* Tablet (portrait and landscape) */
+@media (max-width: 1024px) {
+  .container {
+      width: 90%;
+  }
+
+  h1 {
+      font-size: 2.3em;
+  }
+
+  .description, .word-container, #answer {
+      font-size: 1.3em;
+  }
+
+  button {
+      padding: 12px 18px;
+      font-size: 1.3em;
+  }
+
+  .images-container img {
+      width: 140px;
+      height: 140px;
+  }
+
+  .message {
+      font-size: 1.7em;
+  }
+}
+
+/* Large Screens (Desktop and above) */
+@media (min-width: 1025px) {
+  .container {
+      width: 60%;
+      padding: 40px;
+  }
+
+  h1 {
+      font-size: 3em;
+  }
+
+  .description, .word-container, #answer {
+      font-size: 1.5em;
+  }
+
+  button {
+      padding: 15px 25px;
+      font-size: 1.6em;
+  }
+
+  .images-container img {
+      width: 160px;
+      height: 160px;
+  }
+
+  .message {
+      font-size: 2em;
   }
 }
